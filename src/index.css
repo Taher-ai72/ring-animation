@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* Apply styles to the entire page */
+/* Reset and basic styles */
+body {
+  background-color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Arial", sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Diamond container (Keeps only one visible) */
+.diamond-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px; /* Adjust height to fit design */
+  overflow: hidden;
+}
+
+/* Diamond animation */
+.diamond {
+  width: 123px; /* Match the sprite width */
+  height: 102px; /* Height of a single frame */
+  background-image: url("./Diamond_Sprite.png");
+  background-size: 123px auto;
+  background-repeat: no-repeat;
+  transform: scale(1.5); /* Adjust scale for visibility */
+  clip-path: inset(0 0 90% 0); /* Ensures only one frame is visible */
+  opacity: 0; /* Hidden initially */
+  position: absolute;
+  top: 80px; /* Appears below navbar */
+}
+
+@keyframes diamondAnimation {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: 0px -2048px;
+  }
+}
