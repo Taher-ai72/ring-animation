@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Diamond_Sprite from '/public/Diamond_Sprite.png';
-import Ring from '/public/ring.png';
-import Prong from '/public/prong.png';
+import Diamond_Sprite from '/Diamond_Sprite.png';
+import Ring from '/ring.png';
+import Prong from '/Prong.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,46 +26,46 @@ const Hero = () => {
         scrub: true,
       },
     })
-    .from(diamond, { y: 300 }) // Move diamond down
-    .from(ring, { y: -380 }, "<") // Move ring up
-    .from(prong, { y: -380}, "<"); // Move prong up simultaneously
+    .from(diamond, { y: 300 }) 
+    .from(ring, { y: -380 }, "<") 
+    .from(prong, { y: -380}, "<"); 
   }, []);
 
   return (
     <div ref={containerRef} className="relative h-screen overflow-hidden">
-      {/* Wrapper div for all images, aligned to the left */}
+      
       <div className="absolute left-0 top-0 10 w-full h-full flex flex-col items-center pl-10">
-        {/* Diamond positioned at the top */}
+        
         <div
           ref={diamondRef}
           style={{
             backgroundImage: `url(${Diamond_Sprite})`,
             backgroundSize: 'cover',
-            width: '200px', // Adjust size as needed
-            height: '200px', // Adjust size as needed
-            marginTop: '100px', // Position below the navbar
+            width: '200px', 
+            height: '200px', 
+            marginTop: '100px', 
           }}
         ></div>
 
-        {/* Ring and Prong positioned together below the diamond */}
-        <div className="relative" style={{ marginTop: '500px' }}> {/* Increased gap between diamond and ring/prong */}
+        
+        <div className="relative" style={{ marginTop: '500px' }}> 
           <img
             ref={ringRef}
             src={Ring}
             alt="Ring"
-            style={{ width: '600px', height: 'auto' }} // Adjust size as needed
+            style={{ width: '600px', height: 'auto' }} 
           />
           <img
             ref={prongRef}
             src={Prong}
             alt="Prong"
             style={{
-              width: '150px', // Adjust size as needed
+              width: '150px', 
               height: '110px',
               position: 'absolute',
-              top: '13%', // Center prong on the ring
-              left: '50%', // Center prong on the ring
-              transform: 'translate(-50%, -50%)', // Center prong on the ring
+              top: '13%', 
+              left: '50%', 
+              transform: 'translate(-50%, -50%)', 
             }}
           />
         </div>
